@@ -12,39 +12,14 @@
     </div>
     <div class="nav-menu">
         <ul>
-            <li class="menu-spacer"></li>
+            <x-menu-spacer/>
+            <x-menu-item class="feather-home" link="{{ route('home') }}" name="Home"/>
+            <x-menu-spacer/>
 
-            <li class="menu-item">
-                <a href="{{ route('home') }}" class="menu-item-link">
-                    <span>
-                        <i class="feather-home"></i>
-                        Home
-                    </span>
-                </a>
-            </li>
-
-            <li class="menu-spacer"></li>
-            <li class="menu-title">
-                <span>Item Management</span>
-            </li>
-            <li class="menu-item">
-                <a href="#" class="menu-item-link">
-                    <span>
-                        <i class="feather-plus-circle"></i>
-                        Create New Item
-                    </span>
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="#" class="menu-item-link">
-                    <span>
-                        <i class="feather-server"></i>
-                        Item Lists
-                    </span>
-                    <span class="badge badge-pill bg-white shadow-sm text-primary">57</span>
-                </a>
-            </li>
-            <li class="menu-spacer"></li>
+            <x-menu-title title="Item Management"/>
+            <x-menu-item class="feather-plus-circle" name="Add Item"/>
+            <x-menu-item class="feather-list" name="Item Lists" counter="15"/>
+            <x-menu-spacer/>
         </ul>
     </div>
 </div>
