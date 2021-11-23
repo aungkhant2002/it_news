@@ -22,6 +22,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::prefix("profile")->group(function () {
+    Route::get("/edit-password", "ProfileController@editPassword")->name("profile.edit.password");
+    Route::post("/change-password", "ProfileController@changePassword")->name("profile.change.password");
     Route::get("/edit-photo", "ProfileController@editPhoto")->name("profile.edit.photo");
     Route::post("/change-photo", "ProfileController@changePhoto")->name("profile.change.photo");
 });

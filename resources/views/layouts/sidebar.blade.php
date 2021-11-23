@@ -23,6 +23,7 @@
 
             <x-menu-spacer/>
             <x-menu-title title="User Profile"/>
+            <x-menu-item class="feather-refresh-cw" link="{{ route('profile.edit.password') }}" name="Change Password"/>
             <x-menu-item class="feather-image" link="{{ route('profile.edit.photo') }}" name="Update Photo"/>
             <x-menu-spacer/>
             <li class="menu-item">
