@@ -22,6 +22,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::prefix("profile")->group(function () {
+    Route::get("/edit-name-and-email", "ProfileController@editNameEmail")->name("profile.edit.name.email");
+    Route::post("/change-name", "ProfileController@changeName")->name("profile.change.name");
+    Route::post("/change-email", "ProfileController@changeEmail")->name("profile.change.email");
     Route::get("/edit-password", "ProfileController@editPassword")->name("profile.edit.password");
     Route::post("/change-password", "ProfileController@changePassword")->name("profile.change.password");
     Route::get("/edit-photo", "ProfileController@editPhoto")->name("profile.edit.photo");

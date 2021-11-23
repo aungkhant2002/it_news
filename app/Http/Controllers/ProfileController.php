@@ -11,6 +11,35 @@ use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
+    public function editNameEmail()
+    {
+        return view("user-profile.change-name-email");
+    }
+
+    public function changeName(Request $request)
+    {
+        $request->validate([
+            "name" => "required|min:3|max:50"
+        ]);
+
+        $user = User::find(Auth::id());
+        $user->name = $request->name;
+        $user->update();
+        return redirect()->back();
+    }
+
+    public function changeEmail(Request $request)
+    {
+        $request->validate([
+            "email" => "required|min:5|max:50"
+        ]);
+
+        $user = User::find(Auth::id());
+        $user->email = $request->email;
+        $user->update();
+        return redirect()->back();
+    }
+
     public function editPassword()
     {
         return view("user-profile.edit-password");
