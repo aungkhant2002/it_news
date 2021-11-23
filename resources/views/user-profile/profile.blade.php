@@ -3,6 +3,10 @@
 
 @section("content")
 
+    <x-bread-crumb>
+        <li class="breadcrumb-item active" aria-current="page">Profile</li>
+    </x-bread-crumb>
+
     <div class="row">
         <div class="col-12 col-lg-4">
             <div class="card">

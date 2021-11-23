@@ -4,6 +4,11 @@
 
 @section("content")
 
+    <x-bread-crumb>
+        <li class="breadcrumb-item"><a href="{{ route('profile') }}">Profile</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Upload Profile Photo</li>
+    </x-bread-crumb>
+
     <div class="row">
         <div class="col-12 col-lg-4">
             <div class="card">
