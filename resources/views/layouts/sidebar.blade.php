@@ -20,6 +20,11 @@
             <x-menu-item class="feather-plus-circle" name="Add Item"/>
             <x-menu-item class="feather-list" name="Item Lists" counter="15"/>
             <x-menu-spacer/>
+
+            <x-menu-spacer/>
+            <x-menu-title title="User Profile"/>
+            <x-menu-item class="feather-image" link="{{ route('profile.edit.photo') }}" name="Update Photo"/>
+            <x-menu-spacer/>
             <li class="menu-item">
                 <a href="{{ route('logout') }}" class="btn btn-outline-primary w-100" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
