@@ -11,6 +11,12 @@ use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
+
+    public function profile()
+    {
+        return view("user-profile.profile");
+    }
+
     public function editNameEmail()
     {
         return view("user-profile.change-name-email");

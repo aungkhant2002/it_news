@@ -23,6 +23,7 @@
 
             <x-menu-spacer/>
             <x-menu-title title="User Profile"/>
+            <x-menu-item name="Your Profile" class="feather-user" link="{{ route('profile') }}"/>
             <x-menu-item class="feather-message-square" link="{{ route('profile.edit.name.email') }}" name="Update Name & Email"/>
             <x-menu-item class="feather-refresh-cw" link="{{ route('profile.edit.password') }}" name="Change Password"/>
             <x-menu-item class="feather-image" link="{{ route('profile.edit.photo') }}" name="Update Photo"/>
