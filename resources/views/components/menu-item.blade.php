@@ -1,5 +1,5 @@
 <li class="menu-item">
-    <a href="{{ $link }}" class="menu-item-link">
+    <a href="{{ $link }}" class="menu-item-link {{ request()->url() === $link ? 'active' : '' }}">
         <span>
             <i class="{{ $class }}"></i>
             {{ $name }}
