@@ -21,6 +21,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::resource('/category', 'CategoryController');
+
 Route::prefix("profile")->group(function () {
     Route::get("/", "ProfileController@profile")->name("profile");
     Route::get("/edit-name-and-email", "ProfileController@editNameEmail")->name("profile.edit.name.email");
