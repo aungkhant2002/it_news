@@ -20,6 +20,8 @@
 
             <x-menu-title title="Article Manager"/>
             <x-menu-item class="feather-layers" name="Category Manager" link="{{ route('category.index') }}"/>
+            <x-menu-item class="feather-plus-circle" name="Create Article" link="{{ route('article.create') }}"/>
+            <x-menu-item class="feather-list" name="Article Lists" link="{{ route('article.index') }}"/>
             <x-menu-spacer/>
 
             <x-menu-spacer/>

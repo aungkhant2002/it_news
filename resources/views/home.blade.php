@@ -15,6 +15,10 @@
                         @endif
 
                         {{ __('You are logged in!') }}
+                            <br>
+                            <br>
+                            <br>
+                        {{ $categories }}
                     </div>
                 </div>
             </div>
