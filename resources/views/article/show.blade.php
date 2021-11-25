@@ -37,17 +37,11 @@
                         </div>
                     </div>
                     <p class="text-black-50 description">{{ $article->description }}</p>
-
+                    <hr>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="">
                             <a href="{{ route('article.edit', $article->id) }}" class="btn btn-outline-warning">Edit</a>
-                            <form action="{{ route('article.destroy', $article->id) }}" class="d-inline-block" method="post">
-                                @csrf
-                                @method('delete')
-                                <button class="btn btn-outline-danger"
-                                        onclick="return confirm('Are U sure to delete this category?')">Delete
-                                </button>
-                            </form>
+                            <a href="{{ route('article.index') }}" class="btn btn-outline-dark">All Articles</a>
                         </div>
                         <p>{{ $article->created_at->diffForHumans() }}</p>
                     </div>

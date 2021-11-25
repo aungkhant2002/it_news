@@ -42,7 +42,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($articles as $article)
+                        @forelse($articles as $article)
 
                             <tr>
                                 <td>{{ $article->id }}</td>
@@ -77,12 +77,17 @@
                                 </td>
                             </tr>
 
-                        @endforeach
+                        @empty
+                            <tr>
+                                <td colspan="6" class="text-center">There is no article 😔</td>
+                            </tr>
+
+                        @endforelse
                         </tbody>
                     </table>
 
                     <div class="d-flex justify-content-between align-items-center">
-                        {{ $articles->links() }}
+                        {{ $articles->appends(request()->all())->links() }}
                         <h4 class="">Total Articles - {{ $articles->total() }}</h4>
                     </div>
                 </div>

@@ -9,7 +9,7 @@
     </tr>
     </thead>
     <tbody>
-    @foreach(\App\Category::with("user")->get() as $category)
+    @forelse(\App\Category::with("user")->get() as $category)
         <tr>
             <td>{{ $category->id }}</td>
             <td>{{ $category->title }}</td>
@@ -36,6 +36,11 @@
                 </small>
             </td>
         </tr>
-    @endforeach
+
+    @empty
+        <tr>
+            <td class="text-center" colspan="5">There is no category 😔</td>
+        </tr>
+    @endforelse
     </tbody>
 </table>
