@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view("/", "welcome")->name("index");
+Route::get("/", "BlogController@index")->name("index");
+Route::get("/detail/{id}", "BlogController@detail")->name("detail");
 
 Auth::routes();
 

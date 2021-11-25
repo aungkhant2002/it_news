@@ -68,24 +68,18 @@
 
                     <div id="category">
                         <h4 class="fw-bolder">Category Lists</h4>
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <a href="https://apple.com" class="active">Apple</a>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="https://apple.com">Orange</a>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="https://apple.com">Mango</a>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="https://apple.com">Banana</a>
-                            </li>
 
+                        <ul class="list-group">
+                            @foreach($categories as $category)
+                                <li class="list-group-item">
+                                    <a href="https://apple.com" class="">{{ $category->title }}</a>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
                 <div class="d-none d-lg-block">
+                    @yield("pagination-place")
                 </div>
             </div>
         </div>
