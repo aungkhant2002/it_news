@@ -7,7 +7,7 @@
         <div class="py-3">
 
             <div class="small post-category mb-3">
-                <a href="http://localhost:9090/category/apple/" rel="category tag">{{ $article->category->title }}</a>
+                <a href="{{ route("baseOnCategory", $article->category->id) }}" rel="category tag">{{ $article->category->title }}</a>
             </div>
 
             <h2 class="fw-bolder">{{ $article->title }}</h2>
@@ -37,9 +37,16 @@
                 <p>{{ $article->description }}</p>
 
 
+                @php
+
+                $previousArticle = \App\Article::where("id", "<", $article->id)->latest("id")->first();
+                $nextArticle = \App\Article::where("id", ">", $article->id)->first();
+
+                @endphp
 
                 <div class="nav d-flex justify-content-between p-3">
-                    <a href="#" class="btn btn-outline-primary page-mover rounded-circle">
+                    <a href="{{ isset($previousArticle) ? route("detail", $previousArticle->id) : '#' }}"
+                       class="btn btn-outline-primary page-mover rounded-circle @empty($previousArticle) disabled @endempty">
                         <i class="feather-chevron-left"></i>
                     </a>
 
@@ -47,7 +54,8 @@
                         Read All
                     </a>
 
-                    <a href="#" class="btn btn-outline-primary page-mover rounded-circle">
+                    <a href="{{ isset($nextArticle) ? route("detail", $nextArticle->id) : '#' }}"
+                       class="btn btn-outline-primary page-mover rounded-circle @empty($nextArticle) disabled @endempty">
                         <i class="feather-chevron-right"></i>
                     </a>
                 </div>

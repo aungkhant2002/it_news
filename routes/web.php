@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/", "BlogController@index")->name("index");
 Route::get("/detail/{id}", "BlogController@detail")->name("detail");
+Route::get("/category/{id}", "BlogController@baseOnCategory")->name("baseOnCategory");
 
 Auth::routes();
 

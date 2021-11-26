@@ -21,4 +21,13 @@ class BlogController extends Controller
         $article = Article::find($id);
         return view("blog.detail", compact("article"));
     }
+
+    public function baseOnCategory($id)
+    {
+        $articles = Article::when(isset(request()->search), function ($q) {
+            $search = request()->search;
+            return $q->where("title", "LIKE", "%$search%")->orWhere("description", "LIKE", "%$search%");
+        })->where("category_id", $id)->with(["user", "category"])->latest("id")->paginate(5);
+        return view("welcome", compact("articles"));
+    }
 }

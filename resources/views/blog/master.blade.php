@@ -52,10 +52,10 @@
                 <div class="mb-5 sidebar">
 
                     <div id="search" class="mb-5">
-                        <form action="">
+                        <form action="" method="get">
                             <div class="d-flex search-box">
                                 <input type="text" class="form-control flex-shrink-1 me-2 search-input"
-                                       placeholder="Search Anything">
+                                       placeholder="Search Anything" name="search" value="{{ request()->search }}" required>
                                 <button class="btn btn-primary search-btn">
                                     <i class="feather-search d-block d-xl-none"></i>
                                     <span class="d-none d-xl-block">Search</span>
@@ -70,17 +70,20 @@
                         <h4 class="fw-bolder">Category Lists</h4>
 
                         <ul class="list-group">
+                            <li class="list-group-item">
+                                <a href="{{ route("index") }}" class="{{ request()->url() == route("index") ? 'active' : '' }}">All Categories</a>
+                            </li>
                             @foreach($categories as $category)
                                 <li class="list-group-item">
-                                    <a href="https://apple.com" class="">{{ $category->title }}</a>
+                                    <a href="{{ route("baseOnCategory", $category->id) }}" class="{{ request()->url() == route("baseOnCategory", $category->id) ? 'active' : '' }}">{{ $category->title }}</a>
                                 </li>
                             @endforeach
                         </ul>
                     </div>
                 </div>
-                <div class="d-none d-lg-block">
-                    @yield("pagination-place")
-                </div>
+
+                @yield("pagination-place")
+
             </div>
         </div>
 
