@@ -6,6 +6,7 @@ use App\Article;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class ArticleController extends Controller
 {
@@ -49,6 +50,7 @@ class ArticleController extends Controller
 
         $article = new Article();
         $article->title = $request->title;
+        $article->slug = Str::slug($request->title)."-".uniqid();
         $article->description = $request->description;
         $article->category_id = $request->category;
         $article->user_id = Auth::id();
@@ -95,6 +97,7 @@ class ArticleController extends Controller
         ]);
 
         $article->title = $request->title;
+        $article->slug = Str::slug($request->title)."-".uniqid();
         $article->description = $request->description;
         $article->category_id = $request->category;
         $article->update();
